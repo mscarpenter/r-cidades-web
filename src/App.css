@@ -1,0 +1,34 @@
+/* ... (todo o CSS anterior) ... */
+
+/* Estilo para o Card do Catálogo ser um link */
+.anuncio-card-link {
+  text-decoration: none;
+  color: inherit; /* Herda a cor do texto normal */
+  display: block; /* Faz o link ocupar o card todo */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.anuncio-card-link:hover .anuncio-card {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-color: #5a5a5a;
+}
+
+/* Estilos para a Seção de Solicitação */
+.solicitacao-section {
+  margin-top: 2rem;
+  border-top: 1px solid #3a3a3a;
+  padding-top: 2rem;
+}
+
+.login-prompt {
+  font-size: 1.1rem;
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+}
+.login-prompt a {
+  font-weight: bold;
+  color: #646cff;
+}
