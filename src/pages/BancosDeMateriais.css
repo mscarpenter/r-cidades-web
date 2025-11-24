@@ -1,0 +1,81 @@
+/* Arquivo: src/pages/BancosDeMateriais.css */
+
+.bancos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.bancos-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary, #1a1a1a);
+}
+
+.bancos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.subtitle {
+    color: var(--text-secondary, #666);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.bancos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.banco-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.banco-card h3 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color, #667eea);
+    font-size: 1.3rem;
+}
+
+.banco-info {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.banco-info p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary, #444);
+    line-height: 1.5;
+}
+
+.banco-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    border-top: 1px solid var(--border-color, #e0e0e0);
+    padding-top: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .bancos-container {
+        padding: 1rem;
+    }
+
+    .bancos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bancos-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

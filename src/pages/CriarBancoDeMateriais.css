@@ -1,0 +1,50 @@
+/* Arquivo: src/pages/CriarBancoDeMateriais.css */
+
+.criar-banco-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.criar-banco-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary, #1a1a1a);
+    text-align: center;
+}
+
+.criar-banco-container .subtitle {
+    text-align: center;
+    color: var(--text-secondary, #666);
+    margin-bottom: 2rem;
+}
+
+.criar-banco-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .criar-banco-container {
+        padding: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

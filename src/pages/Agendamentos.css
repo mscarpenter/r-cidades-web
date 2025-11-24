@@ -1,0 +1,174 @@
+/* Arquivo: src/pages/Agendamentos.css */
+
+.agendamentos-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.agendamentos-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary, #1a1a1a);
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary, #444);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.empty-text {
+    color: #888;
+    font-style: italic;
+}
+
+/* Grid de Pendentes */
+.grid-pendentes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-pendente h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color, #667eea);
+}
+
+.card-pendente p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card-pendente button {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Lista de Agendamentos */
+.lista-agendamentos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-agendamento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.agendamento-info {
+    flex: 1;
+}
+
+.agendamento-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.agendada {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.status-badge.coletada {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.status-badge.entregue {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.status-badge.cancelada {
+    background-color: #ffebee;
+    color: #b71c1c;
+}
+
+.data-badge {
+    background-color: #f5f5f5;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.card-agendamento h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+}
+
+.card-agendamento p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-agendamento {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .agendamento-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}

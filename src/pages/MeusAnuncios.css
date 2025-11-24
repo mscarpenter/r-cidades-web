@@ -1,0 +1,191 @@
+/* Arquivo: src/pages/MeusAnuncios.css */
+
+.meus-anuncios-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--text-primary, #1a1a1a);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    color: var(--text-secondary, #666);
+    margin-bottom: 1.5rem;
+}
+
+/* Grid de Anúncios */
+.anuncios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.anuncio-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.anuncio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.anuncio-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--text-primary, #1a1a1a);
+    flex: 1;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-disponivel {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-reservado {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-doado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Descrição */
+.anuncio-descricao {
+    color: var(--text-secondary, #666);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Informações */
+.anuncio-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: var(--background-secondary, #f8f9fa);
+    border-radius: 8px;
+}
+
+.info-item {
+    font-size: 0.9rem;
+}
+
+.info-item strong {
+    color: var(--text-primary, #1a1a1a);
+    margin-right: 0.25rem;
+}
+
+/* Solicitações */
+.solicitacoes-info {
+    margin-bottom: 1rem;
+}
+
+.solicitacoes-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Ações */
+.anuncio-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.anuncio-actions a {
+    text-decoration: none;
+}
+
+/* Modal */
+.warning-text {
+    color: #dc3545;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .meus-anuncios-container {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .header h2 {
+        font-size: 1.5rem;
+    }
+
+    .anuncios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .anuncio-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+}

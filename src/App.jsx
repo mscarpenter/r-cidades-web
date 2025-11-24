@@ -1,14 +1,23 @@
 // Arquivo: src/App.jsx
-import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
-import './App.css'
-import { useAuth } from './context/AuthContext'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { Navbar, Footer } from './components'; // Importa Navbar e Footer
 
-// Importe as páginas
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import CriarAnuncio from './pages/CriarAnuncio'
-import DetalheAnuncio from './pages/DetalheAnuncio'; // 1. Importe a nova página
+// Páginas
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import CriarAnuncio from './pages/CriarAnuncio';
+import DetalheAnuncio from './pages/DetalheAnuncio';
+import Perfil from './pages/Perfil';
+import MeusAnuncios from './pages/MeusAnuncios';
+import MinhasSolicitacoes from './pages/MinhasSolicitacoes';
+import BancosDeMateriais from './pages/BancosDeMateriais';
+import CriarBancoDeMateriais from './pages/CriarBancoDeMateriais';
+import Agendamentos from './pages/Agendamentos';
+
+import './App.css';
 
 // Componente de "Rota Protegida"
 function ProtectedRoute({ children }) {
@@ -20,57 +29,46 @@ function ProtectedRoute({ children }) {
 }
 
 function App() {
-  const { token, user, logout } = useAuth();
-
   return (
     <BrowserRouter>
-      {/* Menu de Navegação */}
-      <nav className="navbar">
-        <Link to="/" className="brand">R+Cidades</Link>
-        <div className="nav-links">
-          <Link to="/">Catálogo</Link>
-          
-          {token ? (
-            // Se o usuário ESTIVER logado
-            <>
-              <Link to="/criar-anuncio">Criar Anúncio</Link>
-              <span className="welcome-user">Olá, {user.name}!</span>
-              <button onClick={logout} className="logout-button">Logout</button>
-            </>
-          ) : (
-            // Se o usuário NÃO estiver logado
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Registrar</Link>
-            </>
-          )}
-        </div>
-      </nav>
+      {/* Nova Navbar Responsiva */}
+      <Navbar />
 
       {/* Onde as páginas serão renderizadas */}
       <div className="container">
         <Routes>
           {/* Rotas Públicas */}
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
-          <Route path="/register" element={token ? <Navigate to="/" /> : <Register />} />
-          
-          {/* 2. Rota de Detalhe (Pública) */}
+          <Route path="/bancos-materiais" element={<BancosDeMateriais />} />
           <Route path="/anuncio/:id" element={<DetalheAnuncio />} />
 
+          {/* Rotas de Autenticação (Redirecionam se já logado) */}
+          <Route path="/login" element={<PublicOnlyRoute><Login /></PublicOnlyRoute>} />
+          <Route path="/register" element={<PublicOnlyRoute><Register /></PublicOnlyRoute>} />
+
           {/* Rotas Protegidas */}
-          <Route 
-            path="/criar-anuncio" 
-            element={
-              <ProtectedRoute>
-                <CriarAnuncio />
-              </ProtectedRoute>
-            } 
-          />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/criar-anuncio" element={<ProtectedRoute><CriarAnuncio /></ProtectedRoute>} />
+          <Route path="/perfil" element={<ProtectedRoute><Perfil /></ProtectedRoute>} />
+          <Route path="/meus-anuncios" element={<ProtectedRoute><MeusAnuncios /></ProtectedRoute>} />
+          <Route path="/minhas-solicitacoes" element={<ProtectedRoute><MinhasSolicitacoes /></ProtectedRoute>} />
+          <Route path="/criar-banco" element={<ProtectedRoute><CriarBancoDeMateriais /></ProtectedRoute>} />
+          <Route path="/agendamentos" element={<ProtectedRoute><Agendamentos /></ProtectedRoute>} />
         </Routes>
       </div>
+
+      <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+// Componente auxiliar para impedir acesso a login/register se já logado
+function PublicOnlyRoute({ children }) {
+  const { token } = useAuth();
+  if (token) {
+    return <Navigate to="/" replace />;
+  }
+  return children;
+}
+
+export default App;

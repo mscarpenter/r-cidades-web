@@ -1,0 +1,219 @@
+/* Arquivo: src/pages/MinhasSolicitacoes.css */
+
+.minhas-solicitacoes-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.minhas-solicitacoes-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary, #1a1a1a);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    color: var(--text-secondary, #666);
+    margin-bottom: 1.5rem;
+}
+
+/* Lista de Solicitações */
+.solicitacoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.solicitacao-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solicitacao-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Header da Solicitação */
+.solicitacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.solicitacao-header h3 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary, #1a1a1a);
+}
+
+.doador-info {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #666);
+    margin: 0;
+}
+
+.doador-info strong {
+    color: var(--text-primary, #1a1a1a);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-pendente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-aprovada {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-rejeitada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-cancelada {
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+
+/* Body da Solicitação */
+.solicitacao-body {
+    margin-bottom: 1rem;
+}
+
+.info-section {
+    margin-bottom: 1rem;
+}
+
+.info-section strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary, #1a1a1a);
+    font-size: 0.9rem;
+}
+
+.justificativa {
+    padding: 1rem;
+    background-color: var(--background-secondary, #f8f9fa);
+    border-left: 3px solid var(--primary-color, #667eea);
+    border-radius: 4px;
+    color: var(--text-secondary, #666);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mensagem-doador {
+    padding: 1rem;
+    background-color: #fff3cd;
+    border-radius: 8px;
+    border-left: 3px solid #ffc107;
+}
+
+.mensagem-doador p {
+    margin: 0;
+    color: #856404;
+    line-height: 1.6;
+}
+
+.solicitacao-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #999);
+    margin-top: 1rem;
+}
+
+/* Ações */
+.solicitacao-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.solicitacao-actions a {
+    text-decoration: none;
+}
+
+.aprovada-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border-radius: 8px;
+    color: #155724;
+    font-weight: 600;
+    flex: 1;
+}
+
+.success-icon {
+    font-size: 1.5rem;
+}
+
+/* Modal */
+.anuncio-titulo {
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin-top: 0.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .minhas-solicitacoes-container {
+        padding: 1rem;
+    }
+
+    .minhas-solicitacoes-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .solicitacao-header {
+        flex-direction: column;
+    }
+
+    .status-badge {
+        align-self: flex-start;
+    }
+
+    .solicitacao-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .aprovada-message {
+        justify-content: center;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+}

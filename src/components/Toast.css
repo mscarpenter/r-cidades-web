@@ -1,0 +1,83 @@
+/* Arquivo: src/components/Toast.css */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    color: white;
+    min-width: 300px;
+    max-width: 400px;
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+    gap: 0.75rem;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Variantes */
+.toast--success {
+    background-color: var(--success-color);
+}
+
+.toast--error {
+    background-color: var(--danger-color);
+}
+
+.toast--warning {
+    background-color: var(--warning-color);
+}
+
+.toast--info {
+    background-color: var(--info-color);
+}
+
+.toast__icon {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.toast__message {
+    margin: 0;
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: white !important;
+    /* Força cor branca */
+}
+
+.toast__close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 0;
+    line-height: 1;
+}
+
+.toast__close:hover {
+    opacity: 1;
+}
